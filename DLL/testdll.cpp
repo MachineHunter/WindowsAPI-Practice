@@ -7,3 +7,9 @@
 void __cdecl TestFunc() {
 	MessageBox(NULL, "TestFunc called", "info", MB_OK);
 }
+
+BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpvReserved) {
+	if(fdwReason == DLL_PROCESS_ATTACH)
+		MessageBox(NULL, "DllMain called", "info", MB_OK);
+	return TRUE;
+}
