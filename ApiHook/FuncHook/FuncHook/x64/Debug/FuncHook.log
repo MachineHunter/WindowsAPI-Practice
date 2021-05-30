@@ -1,0 +1,17 @@
+﻿  dllmain.cpp
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(17,41): warning C4311: '型キャスト': ポインターを 'void *' から 'DWORD' へ切り詰めます。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(17,41): warning C4302: '型キャスト': 'void *' から 'DWORD' へ切り詰めます。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(17,56): warning C4311: '型キャスト': ポインターを 'void *' から 'DWORD' へ切り詰めます。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(17,56): warning C4302: '型キャスト': 'void *' から 'DWORD' へ切り詰めます。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(20,26): warning C4311: '型キャスト': ポインターを 'void *' から 'DWORD' へ切り詰めます。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(20,26): warning C4302: '型キャスト': 'void *' から 'DWORD' へ切り詰めます。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(20,31): warning C4312: '型キャスト': 'DWORD' からより大きいサイズの 'DWORD *' へ変換します。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(30,17): error C2485: 'naked': 拡張属性が間違っています。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(32,2): error C4235: 非標準の拡張機能が使用されています: '__asm' キーワードはこのアーキテクチャではサポートされていません
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(33,3): error C2065: 'mov': 定義されていない識別子です。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(33,7): error C2146: 構文エラー: ';' が、識別子 'eax' の前に必要です。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(33,7): error C2065: 'eax': 定義されていない識別子です。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(34,3): error C2146: 構文エラー: ';' が、識別子 'jmp' の前に必要です。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(34,3): error C2065: 'jmp': 定義されていない識別子です。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(35,2): error C2143: 構文エラー: ';' が '}' の前にありません。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\FuncHook\FuncHook\dllmain.cpp(45,5): warning C4312: '型キャスト': 'DWORD' からより大きいサイズの 'void *' へ変換します。
