@@ -1,0 +1,4 @@
+﻿  ソース.cpp
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\IAT-Hook\self-iat-hook\self-iat-hook\self-iat-hook\ソース.cpp(32,63): warning C4311: '型キャスト': ポインターを 'HMODULE' から 'DWORD' へ切り詰めます。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\IAT-Hook\self-iat-hook\self-iat-hook\self-iat-hook\ソース.cpp(32,63): warning C4302: '型キャスト': 'HMODULE' から 'DWORD' へ切り詰めます。
+  self-iat-hook.vcxproj -> C:\Users\kazu3\Desktop\windows-api-test\ApiHook\IAT-Hook\self-iat-hook\self-iat-hook\x64\Debug\self-iat-hook.exe

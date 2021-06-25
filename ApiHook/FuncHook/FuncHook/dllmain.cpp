@@ -17,7 +17,7 @@ bool Hook(void* target, void* myfunc, int len) {
 
 	DWORD relativeAddress = ((DWORD)myfunc - (DWORD)target) - 5;
 
-	*(BYTE*)target = 0xe9;     // jmp = E9
+	*(BYTE*)target = 0xe8;     // jmp = E9
 	*(DWORD*)((DWORD)target + 1) = relativeAddress;
 
 	DWORD temp;

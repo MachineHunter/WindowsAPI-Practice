@@ -5,15 +5,14 @@ bool Hook(void *target, void *myfunc, int len) {
 	if(len<5)
 		return false;
 
-
 	DWORD curProtection;
 	VirtualProtect(target, len, PAGE_EXECUTE_READWRITE, &curProtection);
 
 	memset(target, 0x90, len);
 
-	DWORD relativeAddress = ((DWORD)myfunc - (DWORD)target) - 5;
+	DWORD relativeAddress = ((DWORD)myfunc - (DWORD)target) - len;
 
-	*(byte*)target = 0xe9;     // jmp = E9
+	*(byte*)target = 0xe8;     // jmp = E9
 	*(DWORD*)((DWORD)target+1) = relativeAddress;
 
 	DWORD temp;
@@ -37,12 +36,6 @@ DWORD WINAPI dothread(LPVOID param) {
 	jmpBackAddy = hookAddress + hookLength;
 
 	Hook((void*)hookAddress, myfunc, hookLength);
-
-	while(true) {
-		if(GetAsyncKeyState(VK_ESCAPE))
-			break;
-		Sleep(50);
-	}
 
 	FreeLibraryAndExitThread((HMODULE)param, 0);
 

@@ -1,0 +1,4 @@
+﻿  dllmain.cpp
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\IAT-Hook\IAT-hook\IAT-Hook\dllmain.cpp(40,67): warning C4311: '型キャスト': ポインターを 'HMODULE' から 'DWORD' へ切り詰めます。
+C:\Users\kazu3\Desktop\windows-api-test\ApiHook\IAT-Hook\IAT-hook\IAT-Hook\dllmain.cpp(40,67): warning C4302: '型キャスト': 'HMODULE' から 'DWORD' へ切り詰めます。
+  IAT-Hook.vcxproj -> C:\Users\kazu3\Desktop\windows-api-test\ApiHook\IAT-Hook\IAT-hook\x64\Debug\IAT-Hook.dll
