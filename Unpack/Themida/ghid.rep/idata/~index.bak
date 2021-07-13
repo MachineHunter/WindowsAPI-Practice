@@ -1,0 +1,9 @@
+VERSION=1
+/
+  00000001:patched.exe:c0a8b11d237280450664599100
+  00000005:sleep-attach-dump-kernelbase-and-thisfile.exe:c0a8b11ebb3282938849771300
+  00000004:sleep-attach-dump-only-thisfile.exe:c0a8b11f5d1282251170982800
+  00000003:sleep-attach-dump.exe:c0a8b11d41a281787474648200
+  00000002:sleep-dump.exe:c0a8b11d420280768141824100
+NEXT-ID:6
+MD5:d41d8cd98f00b204e9800998ecf8427e

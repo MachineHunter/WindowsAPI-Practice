@@ -1,0 +1,27 @@
+// https://www.codeproject.com/Articles/8679/Building-a-LOCAL-COM-Server-and-Client-A-Step-by-S
+// https://ichigopack.net/win32com/com_base_2.html
+
+import "oaidl.idl";
+
+// define IEngine interface
+[object, uuid(A405CD91-B2EB-4E99-8730-EF4DAFD8226C), oleautomation, helpstring("control car")]
+interface IEngine : IUnknown {
+	HRESULT GetMaxSpeed([out,retval] int* maxSpeed);
+};
+
+// define ICreateMyCar interface
+[object, uuid(E7F7CF95-9F5F-4851-90C7-EEB92A0D31C8), oleautomation, helpstring("create car")]
+interface ICreateMyCar : IUnknown {
+	HRESULT SetMaxSpeed([in] int maxSp);
+};
+
+// library statement
+[uuid(7C0034F1-63EE-468C-909C-882B658E593B), version(1.0), helpstring("Car server with typelib")]
+library CarLocalServerLib {
+	importlib("stdole32.tlb");
+	[uuid(EFD64C65-CE74-441A-A31A-4B89E2A995F0)]
+	coclass MyCar {
+		[default] interface ICreateMyCar;
+		interface IEngine;
+	};
+}

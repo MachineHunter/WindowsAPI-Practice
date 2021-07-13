@@ -1,0 +1,2 @@
+﻿MSVCRTD.lib(exe_winmain.obj) : error LNK2019: 未解決の外部シンボル WinMain が関数 "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ) で参照されました
+C:\Users\kazu3\Desktop\windows-api-test\COM\com-server\x64\Debug\com-server.exe : fatal error LNK1120: 1 件の未解決の外部参照

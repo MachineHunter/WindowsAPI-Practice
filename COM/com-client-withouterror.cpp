@@ -4,7 +4,6 @@
 #include <iostream>
 #pragma comment(lib, "strmiids.lib")
 
-
 int main() {
 	IMediaControl* pIFMediaControl = NULL;
 	IMediaEvent* pIFMediaEvent     = NULL;

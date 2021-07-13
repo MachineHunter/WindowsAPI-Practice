@@ -1,0 +1,6 @@
+C:\Users\kazu3\Desktop\windows-api-test\COM\cs-com-server\cs-com-server\cs-com-server\bin\Debug\cs-com-server.dll
+C:\Users\kazu3\Desktop\windows-api-test\COM\cs-com-server\cs-com-server\cs-com-server\bin\Debug\cs-com-server.pdb
+C:\Users\kazu3\Desktop\windows-api-test\COM\cs-com-server\cs-com-server\cs-com-server\obj\Debug\cs-com-server.csprojAssemblyReference.cache
+C:\Users\kazu3\Desktop\windows-api-test\COM\cs-com-server\cs-com-server\cs-com-server\obj\Debug\cs-com-server.csproj.CoreCompileInputs.cache
+C:\Users\kazu3\Desktop\windows-api-test\COM\cs-com-server\cs-com-server\cs-com-server\obj\Debug\cs-com-server.dll
+C:\Users\kazu3\Desktop\windows-api-test\COM\cs-com-server\cs-com-server\cs-com-server\obj\Debug\cs-com-server.pdb

@@ -4,16 +4,15 @@
 #include <sstream>
 #pragma comment(lib, "Dbghelp")
 
-typedef unsigned __int64 QWORD;
+
+typedef BOOL* (WINAPI* OriginalBeep)(DWORD dwFreq, DWORD dwDuration);
+OriginalBeep originalBeep;
 
 
-typedef DWORD* (WINAPI* OriginalAPI)();
-OriginalAPI originalAPI;
-
-
-DWORD WINAPI MyAPI() {
-    MessageBox(NULL, TEXT("Hooked GetSystemTimeAsFileTime!!"), TEXT("success"), MB_OK | MB_ICONEXCLAMATION);
-    return 0;
+void WINAPI MyBeep(DWORD dwFreq, DWORD dwDuration) {
+    MessageBox(NULL, TEXT("Hooked Beep!!!"), TEXT("success"), MB_OK | MB_ICONEXCLAMATION);
+    originalBeep(dwFreq, dwDuration);
+    return;
 }
 
 
@@ -32,7 +31,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
         s << szMyPath << std::endl;
         MessageBox(NULL, s.str().c_str(), TEXT("target"), MB_OK);
 
-        originalAPI = (OriginalAPI)GetProcAddress(GetModuleHandle("kernel32.dll"), "GetCurrentProcessId");
+        originalBeep = (OriginalBeep)GetProcAddress(GetModuleHandle("kernel32.dll"), "Beep");
         PIMAGE_IMPORT_DESCRIPTOR pImageImportDescriptor = (PIMAGE_IMPORT_DESCRIPTOR)ImageDirectoryEntryToData(hModule, TRUE, IMAGE_DIRECTORY_ENTRY_IMPORT, &cbSize);
 
         for (; pImageImportDescriptor->Name; pImageImportDescriptor++) {
@@ -46,7 +45,7 @@ BOOL APIENTRY DllMain(HMODULE hModule,
                 FARPROC pfnImportedFunc = (FARPROC)(pFirstThunk->u1.Function);
                 PIMAGE_IMPORT_BY_NAME pImageImportByName = (PIMAGE_IMPORT_BY_NAME)((PBYTE)hModule + pOriginalFirstThunk->u1.AddressOfData);
 
-                if (pfnImportedFunc == (FARPROC)originalAPI) {
+                if (pfnImportedFunc == (FARPROC)originalBeep) {
                     MEMORY_BASIC_INFORMATION mbi;
                     DWORD dwJunk = 0;
 
@@ -56,27 +55,12 @@ BOOL APIENTRY DllMain(HMODULE hModule,
                         return FALSE;
                     }
 
-                    pFirstThunk->u1.Function = (ULONGLONG)(DWORD_PTR)MyAPI;
-                    MessageBox(NULL, TEXT("overwritten IAT!"), TEXT("success"), MB_OK);
+                    pFirstThunk->u1.Function = (ULONGLONG)(DWORD_PTR)MyBeep;
                     if (VirtualProtect(mbi.BaseAddress, mbi.RegionSize, mbi.Protect, &dwJunk))
                         break;
                 }
             }
         }
-
-        // エントリーポイント復元 -------------------------------
-        QWORD entryaddr = 0x7ff7aa4d1262;
-        void* pentry = (void*)entryaddr;
-        DWORD curProtection;
-        DWORD temp;
-
-        MessageBox(NULL, TEXT("start restoring entrypoint 2byte"), TEXT("info"), MB_OK);
-        if (VirtualProtect(pentry, 2, PAGE_EXECUTE_READWRITE, &curProtection) == 0)
-            MessageBox(NULL, TEXT("virtualProtect failed!"), TEXT("fail"), MB_OK | MB_ICONERROR);
-        *(BYTE*)((QWORD)pentry)     = 0xe9;    // eb => e9
-        *(BYTE*)((QWORD)pentry + 1) = 0xc9;    // fe => c9
-        VirtualProtect(pentry, 2, curProtection, &temp);
-        // -------------------------------------------------------
     }
 
     return TRUE;
